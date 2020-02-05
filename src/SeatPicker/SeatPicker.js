@@ -6,13 +6,15 @@ import Blank from "./Blank";
 
 export class SeatPicker extends Component {
   static defaultProps = {
-    addSeatCallback: ({ row, number, id }, addCb) => {
-      console.log(`Added seat ${number}, row ${row}, id ${id}`);
-      addCb(row, number, id);
+    addSeatCallback: ({ row, number, id }, addCb, isCustomClick) => {
+      if (!isCustomClick) {
+        addCb(row, number, id);
+      }
     },
-    removeSeatCallback: ({ row, number, id }, removeCb) => {
-      console.log(`Removed seat ${number}, row ${row}, id ${id}`);
-      removeCb(row, number);
+    removeSeatCallback: ({ row, number, id }, removeCb, isCustomClick) => {
+      if (!isCustomClick) {
+        removeCb(row, number);
+      }
     },
     maxReservableSeats: 0,
   };

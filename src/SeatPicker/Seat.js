@@ -6,10 +6,8 @@ export default class Seat extends Component {
     isSelected: false,
   };
 
-  handleClick = isCustomClick => {
-    if (!isCustomClick) {
-      !this.props.isReserved && this.props.selectSeat();
-    }
+  handleClick = () => {
+    !this.props.isReserved && this.props.selectSeat();
   };
 
   render() {
